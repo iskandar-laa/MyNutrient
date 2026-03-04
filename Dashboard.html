@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNutrient Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Dashboard.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <img src="Icon/logo.png" alt="MyNutrient Logo"> 
+        </div>
+
+        <div class="user-profile-card">
+            <div class="avatar-circle" id="userAvatar"></div> 
+            <span class="user-name" id="userName">Loading...</span>
+            <span class="notification-icon">🔔</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">REAL-TIME DATA</a>
+            <a href="Analysis.html" class="nav-item">ANALYSIS</a>
+        </nav>
+
+        <button class="logout-btn">LOG OUT</button>
+    </aside>
+
+    <main class="main-body">
+        <header class="content-header">
+            <div class="filter-dropdown" id="calendarTrigger" style="cursor: pointer;">
+                <span class="calendar-icon">📅</span>
+                <div class="filter-text">
+                    <label>Filter Periode</label>
+                    <span id="dateDisplay">17 April 2020 - 21 May 2020</span>
+                </div>
+                <span class="arrow-down">▼</span>
+                <input type="text" id="dateInput" style="display:none;">
+            </div>
+        </header>
+
+        <section class="kpi-row">
+            <div class="stat-card">
+                <div class="status-indicator">
+                    <img src="Icon/soil.png" alt="Soil Icon" class="stat-icn-inside">
+                </div>
+                <div class="stat-info">
+                    <p class="stat-label">SOIL PH</p>
+                    <h3 class="stat-value">GOOD</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="status-indicator">
+                    <img src="Icon/moisture.png" alt="Moisture Icon" class="stat-icn-inside">
+                </div> 
+                <div class="stat-info">
+                    <p class="stat-label">MOISTURE LEVEL</p>
+                    <h3 class="stat-value" id="kpiMoisture">0%</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="status-indicator">
+                    <img src="Icon/soiltemp.png" alt="Temp Icon" class="stat-icn-inside">
+                </div>
+                <div class="stat-info">
+                    <p class="stat-label">SOIL TEMP</p>
+                    <h3 class="stat-value" id="kpiTemp">0%</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-row">
+            <div class="chart-box">
+                <h4>SOIL PH LEVEL</h4>
+                <div class="chart-placeholder"><canvas id="phBarChart"></canvas></div>
+            </div>
+            <div class="chart-box">
+                <h4>WEATHER CONDITION</h4>
+                <div class="chart-placeholder"><canvas id="weatherBarChart"></canvas></div>
+            </div>
+        </section>
+
+        <section class="matrix-card">
+            <div class="matrix-header">
+                <h4>SOIL CONDITION MATRICS</h4>
+                <div class="matrix-controls">
+                    <label><input type="checkbox"> Chart</label>
+                    <label><input type="checkbox" checked> Show Value</label>
+                </div>
+            </div>
+            <div class="matrix-grid">
+                <div class="circular-stat">
+                    <div class="progress-ring" id="moistureRing" data-percent="81">81%</div>
+                    <p>MOISTURE</p>
+                </div>
+                <div class="circular-stat">
+                    <div class="progress-ring" id="phosphorusRing" data-percent="22">22%</div>
+                    <p>PHOSPHORUS</p>
+                </div>
+                <div class="circular-stat">
+                    <div class="progress-ring" id="nitrogenRing" data-percent="62">62%</div>
+                    <p>NITROGEN (N)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fp = flatpickr("#dateInput", {
+            mode: "range",
+            dateFormat: "d M Y",
+            positionElement: document.getElementById('calendarTrigger'),
+            onChange: function(selectedDates, dateStr) {
+                if (selectedDates.length === 2) {
+                    const rangeText = dateStr.replace(" to ", " - ");
+                    document.getElementById('dateDisplay').innerHTML = rangeText;
+                }
+            }
+        });
+
+        document.getElementById('calendarTrigger').addEventListener('click', () => {
+            fp.open();
+        });
+    });
+</script>
+
+<script type="module" src="Database/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Nutrient - Register</title>
+    <link rel="stylesheet" href="Css/Register.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <div class="content-box">
+            <h1>Join Our Community!</h1>
+            <p>Start your journey toward smarter farming...</p>
+            
+            <button id="googleSignUpBtn" class="google-btn">
+                <i class="ph-bold ph-google-logo"></i> Sign up with Google
+            </button>
+            <div class="or">or</div>
+            <button id="appleSignUpBtn" class="email-btn">
+                <i class="ph-bold ph-apple-logo"></i> Sign up with Apple
+            </button>
+        </div>
+        <img src="https://7thandpalm.com/cdn/shop/files/7P_ST0052-Jade-Plant-Sticker.jpg?v=1688078520" class="plant" alt="Jade Plant">
+    </div>
+
+    <div class="right">
+        <div class="login-box">
+            <h3>Register Your Farm</h3>
+            
+            <div class="input-group">
+                <input type="text" id="regFullName" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="regEmail" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="regPassword" placeholder="Password" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="deviceCode" placeholder="Device Code (Hardware ID)" required>
+            </div>
+
+            <button id="registerBtn" class="login-btn">Create Account</button>
+            
+            <p class="register">Already have an account? <a href="Login.html">Login</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="deviceModal" class="modal">
+    <div class="modal-content">
+        <i class="ph-bold ph-cpu" style="font-size: 2rem; color: #1aae70;"></i>
+        <h3>Verify Device</h3>
+        <p>Please enter your hardware code to link your farm equipment with your social account.</p>
+        <input type="text" id="modalDeviceInput" placeholder="Enter Device Code">
+        <button id="modalConfirmBtn" class="login-btn">Verify & Continue</button>
+        <br>
+        <span id="closeModal" class="close-btn" style="cursor: pointer; color: #636e72; font-size: 0.9rem;">Cancel</span>
+    </div>
+</div>
+
+<script type="module" src="Database/register.js"></script>
+
+</body>
+</html>

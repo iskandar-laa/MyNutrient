@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNutrient - Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/Analysis.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <img src="logo.png" alt="MyNutrient Logo"> 
+        </div>
+
+        <div class="user-profile-card">
+            <div class="avatar-circle" id="userAvatar"></div> 
+            <span class="user-name" id="userName">Loading...</span> 
+            <span class="notification-icon">🔔</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="Dashboard.html" class="nav-item">REAL-TIME DATA</a>
+            <a href="#" class="nav-item active">ANALYSIS</a>
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">LOG OUT</button>
+    </aside>
+
+    <main class="main-body">
+        <header class="content-header">
+            <div class="filter-dropdown" id="calendarTrigger" style="cursor: pointer;">
+                <span class="calendar-icon">📅</span>
+                <div class="filter-text">
+                    <label>Filter Periode</label>
+                    <span id="dateDisplay">17 April 2020 - 21 May 2020</span>
+                </div>
+                <span class="arrow-down">▼</span>
+                <input type="text" id="dateInput" style="display:none;">
+            </div>
+        </header>
+
+        <section class="analysis-card">
+            <div class="card-header">
+                <div class="title-group">
+                    <h4>MONTHLY ANALYSIS</h4>
+                </div>
+                <button class="view-report-btn">View Report</button>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="analysisDonutChart"></canvas>
+            </div>
+
+            <div class="analysis-legend">
+                <div class="legend-item"><span class="dot nutrient"></span> NUTRIEN <span class="percent">40%</span></div>
+                <div class="legend-item"><span class="dot cost"></span> COST <span class="percent">32%</span></div>
+                <div class="legend-item"><span class="dot weather"></span> WEATHER <span class="percent">28%</span></div>
+            </div>
+        </section>
+
+        <section class="recommend-card">
+            <h4>RECOMMEND, QUANTITY AND COST</h4>
+            <p class="sub-label">SAVE MORE, GROW MORE</p>
+            
+            <table class="cost-table">
+                <tr>
+                    <td>NITROGEN (N)</td>
+                    <td class="price-val">RM 150-160/KG</td>
+                </tr>
+                <tr>
+                    <td>PHOSPHORUS (P)</td>
+                    <td class="price-val">RM 140-160/KG</td>
+                </tr>
+                <tr>
+                    <td>POTASSIUM (K)</td>
+                    <td class="price-val">RM 110-140/KG</td>
+                </tr>
+                <tr>
+                    <td>NPK MIX</td>
+                    <td class="price-val">RM 120-150/KG</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script type="module" src="Database/Analysis.js"></script>
+
+</body>
+</html>

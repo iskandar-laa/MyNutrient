@@ -1,0 +1,199 @@
+:root {
+    --bg-light: #d9d9d9; 
+    --sidebar-white: #ffffff;
+    --text-dark: #000000;
+    --text-muted: #888888;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    zoom: 0.95; /* Matches your dashboard compact feel */
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Updated Sidebar to match Dashboard.html exactly */
+.sidebar {
+    width: 240px; 
+    background: var(--sidebar-white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #ccc;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar-brand img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.user-profile-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+}
+
+.nav-item {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.nav-item.active { background: #000; color: white; }
+.nav-item:not(.active) { background: #d3d3d3; color: #777; }
+
+.logout-btn {
+    margin-top: auto;
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Main Content Styling */
+.main-body {
+    flex: 1;
+    padding: 25px 40px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.filter-dropdown {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 12px;
+}
+
+.filter-text label { display: block; font-size: 10px; color: #3b82f6; font-weight: bold; }
+
+/* Analysis Cards */
+.analysis-card, .recommend-card {
+    background: white;
+    padding: 25px;
+    border-radius: 5px; 
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sub-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 5px 0 0 0;
+}
+
+.view-report-btn {
+    background: white;
+    border: 1px solid #eee;
+    color: #5d5fef;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.chart-wrapper {
+    height: 220px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.analysis-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+.dot.nutrient { background: #5d5fef; }
+.dot.cost { background: #a5a6f6; }
+.dot.weather { background: #d1d2ff; }
+
+/* Table Styling */
+.cost-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.cost-table td {
+    padding: 15px 0;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.price-val {
+    text-align: right;
+    color: var(--text-muted);
+}
+
+.filter-dropdown:hover {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    background-size: cover; /* This makes the user photo fill the circle */
+    background-position: center;
+    overflow: hidden;
+}
